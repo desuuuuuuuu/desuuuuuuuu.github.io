@@ -15,7 +15,7 @@ export const portfolioData = {
 
   // Faded black & white portrait layered into the hero background.
   // Leave empty to hide the layer.
-  heroBackgroundImage: "https://www.image2url.com/r2/default/images/1785099743626-3e3099fd-8693-4145-9373-c4b7be414d88.png",
+  heroBackgroundImage: "https://www.image2url.com/r2/default/images/1785099854926-504ca728-4f46-4670-995c-a8bceea694fa.png",
 
   socials: [
     {

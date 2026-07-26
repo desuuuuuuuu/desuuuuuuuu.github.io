@@ -54,7 +54,7 @@ const Hero = () => {
             alt=""
             decoding="async"
             style={{ opacity: 'var(--portrait-opacity, 0.15)' }}
-            className="w-full h-full object-cover object-top grayscale [mask-image:radial-gradient(ellipse_70%_65%_at_center,black_30%,transparent_75%)]"
+            className="w-full h-full object-contain object-center grayscale [mask-image:radial-gradient(ellipse_70%_65%_at_center,black_35%,transparent_78%)] [-webkit-mask-image:radial-gradient(ellipse_70%_65%_at_center,black_35%,transparent_78%)]"
           />
         </div>
       )}
