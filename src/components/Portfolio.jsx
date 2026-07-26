@@ -18,13 +18,13 @@ const ProjectCard = ({ project, index }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-60px' }}
       transition={{ duration: 0.4, delay: index * 0.1 }}
-      className="bg-dark-3/90 rounded-xl overflow-hidden border border-gold/10 hover:border-gold/30 hover:-translate-y-1 hover:shadow-xl hover:shadow-gold/5 transition-all duration-300 flex flex-col"
+      className="bg-dark-3/90 rounded-xl overflow-hidden border border-cream/10 hover:border-cream/30 hover:-translate-y-1 hover:shadow-xl hover:shadow-cream/5 transition-all duration-300 flex flex-col"
     >
       <div className="relative group">
         <div className="aspect-video overflow-hidden bg-dark-2">
           {imageFailed ? (
             <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-dark-2 to-dark-3">
-              <span className="text-gold/40 text-4xl font-bold">{project.title.charAt(0)}</span>
+              <span className="text-cream/40 text-4xl font-bold">{project.title.charAt(0)}</span>
             </div>
           ) : (
             <AnimatePresence mode="wait">
@@ -50,14 +50,14 @@ const ProjectCard = ({ project, index }) => {
             <div className="absolute inset-0 flex items-center justify-between px-3 opacity-100 md:opacity-0 md:group-hover:opacity-100 md:focus-within:opacity-100 transition-opacity duration-300">
               <button
                 onClick={prev}
-                className="w-9 h-9 rounded-full bg-dark/80 text-light flex items-center justify-center hover:bg-gold/80 transition-colors text-sm"
+                className="w-9 h-9 rounded-full bg-dark/80 text-light flex items-center justify-center hover:bg-cream/80 transition-colors text-sm"
                 aria-label="Previous image"
               >
                 &#10094;
               </button>
               <button
                 onClick={next}
-                className="w-9 h-9 rounded-full bg-dark/80 text-light flex items-center justify-center hover:bg-gold/80 transition-colors text-sm"
+                className="w-9 h-9 rounded-full bg-dark/80 text-light flex items-center justify-center hover:bg-cream/80 transition-colors text-sm"
                 aria-label="Next image"
               >
                 &#10095;
@@ -69,7 +69,7 @@ const ProjectCard = ({ project, index }) => {
                   key={i}
                   onClick={() => setCurrentImage(i)}
                   className={`h-1.5 rounded-full transition-all ${
-                    i === currentImage ? 'bg-gold w-4' : 'bg-light/30 w-1.5 hover:bg-light/50'
+                    i === currentImage ? 'bg-cream w-4' : 'bg-light/30 w-1.5 hover:bg-light/50'
                   }`}
                   aria-label={`Go to image ${i + 1}`}
                   aria-current={i === currentImage ? 'true' : undefined}
@@ -81,14 +81,14 @@ const ProjectCard = ({ project, index }) => {
       </div>
 
       <div className="p-6 flex flex-col flex-1">
-        <h3 className="text-lg font-semibold text-gold mb-2">{project.title}</h3>
+        <h3 className="text-lg font-semibold text-cream mb-2">{project.title}</h3>
         <p className="text-light/60 text-sm leading-relaxed mb-4">{project.description}</p>
 
         <div className="flex flex-wrap gap-2 mb-4">
           {project.techStack.map((tech) => (
             <span
               key={tech}
-              className="px-2.5 py-1 text-[11px] rounded-full bg-gold/10 text-gold border border-gold/20"
+              className="px-2.5 py-1 text-[11px] rounded-full bg-cream/10 text-cream border border-cream/20"
             >
               {tech}
             </span>
@@ -98,12 +98,12 @@ const ProjectCard = ({ project, index }) => {
         <ul className="space-y-1.5 mt-auto">
           {project.features.slice(0, 3).map((feature, i) => (
             <li key={i} className="text-light/50 text-xs flex items-start gap-2">
-              <span className="text-gold flex-shrink-0" aria-hidden="true">&#8226;</span>
+              <span className="text-cream flex-shrink-0" aria-hidden="true">&#8226;</span>
               {feature}
             </li>
           ))}
           {hiddenFeatures > 0 && (
-            <li className="text-gold/60 text-xs pt-0.5">+ {hiddenFeatures} more features</li>
+            <li className="text-cream/60 text-xs pt-0.5">+ {hiddenFeatures} more features</li>
           )}
         </ul>
       </div>

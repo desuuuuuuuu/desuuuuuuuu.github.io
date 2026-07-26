@@ -35,7 +35,7 @@ const ParticleLayer = ({ count, size, opacity, radius, speed, reduced }) => {
       </bufferGeometry>
       <pointsMaterial
         size={size}
-        color="#D4AF37"
+        color="#EFE6D0"
         transparent
         opacity={opacity}
         sizeAttenuation

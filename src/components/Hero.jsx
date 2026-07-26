@@ -36,7 +36,7 @@ const Hero = () => {
               beamWidth={2}
               beamHeight={15}
               beamNumber={12}
-              lightColor="#D4AF37"
+              lightColor="#EFE6D0"
               speed={2}
               noiseIntensity={1.75}
               scale={0.2}
@@ -57,14 +57,14 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="flex-shrink-0 relative"
           >
-            <div className="absolute inset-0 rounded-full bg-gold/15 blur-3xl scale-90" aria-hidden="true" />
+            <div className="absolute inset-0 rounded-full bg-cream/15 blur-3xl scale-90" aria-hidden="true" />
             <motion.div
               animate={{ rotate: 360 }}
               transition={{ repeat: Infinity, duration: 40, ease: 'linear' }}
-              className="absolute -inset-4 rounded-full border border-dashed border-gold/25"
+              className="absolute -inset-4 rounded-full border border-dashed border-cream/25"
               aria-hidden="true"
             />
-            <div className="relative w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-full overflow-hidden border-[3px] border-gold/40 shadow-2xl shadow-gold/10">
+            <div className="relative w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-full overflow-hidden border-[3px] border-cream/40 shadow-2xl shadow-cream/10">
               <img
                 src={portfolioData.profileImage}
                 alt={portfolioData.brand}
@@ -80,12 +80,12 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="flex-1 max-w-xl text-center lg:text-left"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-gold/25 bg-gold/5 mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-cream/25 bg-cream/5 mb-6">
               <span className="relative flex h-2 w-2" aria-hidden="true">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-gold opacity-60" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-gold" />
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cream opacity-60" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-cream" />
               </span>
-              <span className="text-gold/90 text-xs uppercase tracking-[0.2em] font-medium">
+              <span className="text-cream/90 text-xs uppercase tracking-[0.2em] font-medium">
                 {portfolioData.availability}
               </span>
             </div>
@@ -93,7 +93,7 @@ const Hero = () => {
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-light leading-tight mb-5">
               {portfolioData.brand}
             </h1>
-            <p className="text-base sm:text-lg md:text-xl text-gold/90 mb-10 leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-cream/90 mb-10 leading-relaxed">
               {portfolioData.tagline}
             </p>
 
@@ -101,12 +101,12 @@ const Hero = () => {
               <SpecularButton
                 size="md"
                 radius={18}
-                tint="#D4AF37"
+                tint="#EFE6D0"
                 tintOpacity={0.1}
                 blur={2}
                 textColor="#f5f5f5"
-                lineColor="#D4AF37"
-                baseColor="#D4AF37"
+                lineColor="#EFE6D0"
+                baseColor="#EFE6D0"
                 intensity={1}
                 shineSize={10}
                 shineFade={40}
@@ -121,7 +121,7 @@ const Hero = () => {
               </SpecularButton>
               <a
                 href="#contact"
-                className="px-8 py-3.5 rounded-2xl border border-light/20 text-light/80 text-base font-medium hover:border-gold/50 hover:text-gold transition-colors duration-300"
+                className="px-8 py-3.5 rounded-2xl border border-light/20 text-light/80 text-base font-medium hover:border-cream/50 hover:text-cream transition-colors duration-300"
               >
                 Get in Touch
               </a>
@@ -136,7 +136,7 @@ const Hero = () => {
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-light/60 hover:text-gold transition-colors duration-300 group"
+                    className="flex items-center gap-2 text-light/60 hover:text-cream transition-colors duration-300 group"
                     aria-label={social.name}
                   >
                     <Icon size={20} className="group-hover:scale-110 transition-transform" />
@@ -154,7 +154,7 @@ const Hero = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.4, duration: 0.8 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2 text-light/40 hover:text-gold transition-colors duration-300 z-10"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2 text-light/40 hover:text-cream transition-colors duration-300 z-10"
         aria-label="Scroll to About section"
       >
         <span className="text-[10px] uppercase tracking-[0.3em]">Scroll</span>

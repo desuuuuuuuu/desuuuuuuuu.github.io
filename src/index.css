@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
 @theme {
-  --color-gold: #D4AF37;
-  --color-gold-light: #F0D060;
-  --color-gold-dark: #B8960C;
+  --color-cream: #EFE6D0;
+  --color-cream-light: #FBF7EC;
+  --color-cream-dark: #C9BC9C;
   --color-dark: #0A0A0A;
   --color-dark-2: #111111;
   --color-dark-3: #1A1A1A;
@@ -28,7 +28,7 @@ body {
 }
 
 ::selection {
-  background: rgba(212, 175, 55, 0.35);
+  background: rgba(239, 230, 208, 0.35);
   color: var(--color-light);
 }
 
@@ -39,11 +39,11 @@ body {
   background: var(--color-dark);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--color-gold-dark);
+  background: var(--color-cream-dark);
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-gold);
+  background: var(--color-cream);
 }
 
 @media (prefers-reduced-motion: reduce) {

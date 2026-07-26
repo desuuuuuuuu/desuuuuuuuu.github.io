@@ -19,13 +19,13 @@ const About = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.5, delay: 0.15 }}
-          className="max-w-4xl mx-auto bg-dark-3/90 rounded-2xl p-8 md:p-12 border border-gold/10"
+          className="max-w-4xl mx-auto bg-dark-3/90 rounded-2xl p-8 md:p-12 border border-cream/10"
         >
           <div className="flex flex-wrap justify-center gap-2.5 mb-8">
             {portfolioData.highlights.map((highlight) => (
               <span
                 key={highlight}
-                className="px-4 py-1.5 text-xs rounded-full bg-gold/10 text-gold border border-gold/20 uppercase tracking-wider"
+                className="px-4 py-1.5 text-xs rounded-full bg-cream/10 text-cream border border-cream/20 uppercase tracking-wider"
               >
                 {highlight}
               </span>
@@ -38,20 +38,20 @@ const About = () => {
             ))}
           </div>
 
-          <div className="grid grid-cols-3 gap-4 mt-10 pt-8 border-t border-gold/10">
+          <div className="grid grid-cols-3 gap-4 mt-10 pt-8 border-t border-cream/10">
             {stats.map((stat) => (
               <div key={stat.label} className="text-center">
-                <p className="text-gold text-2xl md:text-3xl font-bold">{stat.value}</p>
+                <p className="text-cream text-2xl md:text-3xl font-bold">{stat.value}</p>
                 <p className="text-muted text-xs md:text-sm mt-1.5">{stat.label}</p>
               </div>
             ))}
           </div>
 
-          <div className="mt-8 pt-6 border-t border-gold/10 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-2 text-center sm:text-left">
+          <div className="mt-8 pt-6 border-t border-cream/10 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-2 text-center sm:text-left">
             <span className="text-muted text-sm font-medium">Email</span>
             <a
               href={`mailto:${portfolioData.email}`}
-              className="text-gold hover:text-gold-light transition-colors text-sm break-all"
+              className="text-cream hover:text-cream-light transition-colors text-sm break-all"
             >
               {portfolioData.email}
             </a>
