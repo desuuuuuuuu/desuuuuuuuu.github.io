@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { FaGithub, FaArrowUp } from 'react-icons/fa';
+import ViewCounter from './ViewCounter';
 import { portfolioData } from '../data/portfolio';
 
 const socialIcons = {
@@ -75,6 +76,7 @@ const Footer = () => {
           <p className="text-muted text-[11px]">
             &copy; {new Date().getFullYear()} {portfolioData.brand} | All Rights Reserved
           </p>
+          <ViewCounter />
           <a
             href="#home"
             className="flex items-center gap-2 text-muted hover:text-silver transition-colors text-[11px] uppercase tracking-wider"
