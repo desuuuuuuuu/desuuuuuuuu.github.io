@@ -69,12 +69,7 @@ const Navbar = () => {
         scrolled ? 'bg-dark/90 backdrop-blur-md shadow-lg shadow-black/30 border-b border-silver/10' : 'bg-transparent'
       }`}
     >
-      <div className="max-w-6xl mx-auto px-6 h-16 md:h-20 flex items-center justify-between">
-        <a href="#home" className="flex items-center gap-3">
-          <img src="/images/logo.svg" alt="Desu Wannabisaya logo" className="w-9 h-9 md:w-10 md:h-10" />
-          <span className="text-lg md:text-xl font-bold tracking-wider bg-gradient-to-b from-white via-[#C9C9CE] to-[#77777E] bg-clip-text text-transparent">Desu Wannabisaya</span>
-        </a>
-
+      <div className="max-w-6xl mx-auto px-6 h-16 md:h-20 flex items-center justify-center">
         <div className="hidden md:flex items-center gap-7 lg:gap-9">
           {portfolioData.navLinks.map((link) => (
             <a key={link.href} href={link.href} className={`text-xs lg:text-sm ${linkClass(link.href)}`}>
@@ -86,7 +81,7 @@ const Navbar = () => {
         <button
           ref={toggleRef}
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="md:hidden text-light flex flex-col gap-1.5 p-2"
+          className="md:hidden text-light flex flex-col gap-1.5 p-2 ml-auto"
           aria-label="Toggle menu"
           aria-expanded={mobileOpen}
         >
