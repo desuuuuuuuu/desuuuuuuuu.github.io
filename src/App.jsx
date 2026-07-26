@@ -9,6 +9,8 @@ import Skills from './components/Skills';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import CanvasGuard from './components/CanvasGuard';
+import BrightnessControl from './components/BrightnessControl';
+import { portfolioData } from './data/portfolio';
 
 const ParticleField = lazy(() => import('./components/ParticleField'));
 
@@ -70,6 +72,8 @@ function App() {
           </main>
           <Footer />
         </div>
+
+        {portfolioData.heroBackgroundImage && <BrightnessControl />}
       </div>
     </MotionConfig>
   );
