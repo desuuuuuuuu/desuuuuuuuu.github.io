@@ -13,6 +13,10 @@ export const portfolioData = {
   },
   profileImage: "https://i.pinimg.com/vwebp/736x/9a/b9/ce/9ab9ce093485b19c9040746d4d1e0f13.webp",
 
+  // Faded black & white portrait layered into the hero background.
+  // Leave empty to hide the layer.
+  heroBackgroundImage: "https://www.image2url.com/r2/default/images/1785099241500-562dcacf-5808-412d-bfb5-e1c4ca362221.png",
+
   socials: [
     {
       name: "GitHub",

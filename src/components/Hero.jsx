@@ -47,6 +47,17 @@ const Hero = () => {
         </CanvasGuard>
       </div>
 
+      {portfolioData.heroBackgroundImage && (
+        <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+          <img
+            src={portfolioData.heroBackgroundImage}
+            alt=""
+            decoding="async"
+            className="w-full h-full object-cover object-top grayscale opacity-15 [mask-image:radial-gradient(ellipse_70%_65%_at_center,black_30%,transparent_75%)]"
+          />
+        </div>
+      )}
+
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-dark/60 to-dark pointer-events-none" />
 
       <div className="relative z-10 w-full max-w-6xl mx-auto px-6 pt-28 pb-24 md:pt-32 md:pb-28">
