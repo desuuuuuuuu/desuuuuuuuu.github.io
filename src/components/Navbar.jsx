@@ -55,10 +55,10 @@ const Navbar = () => {
 
   const linkClass = (href) =>
     `relative uppercase tracking-[0.15em] font-medium transition-colors duration-300 ` +
-    `after:absolute after:left-0 after:-bottom-1.5 after:h-px after:bg-cream after:transition-all after:duration-300 ` +
+    `after:absolute after:left-0 after:-bottom-1.5 after:h-px after:bg-silver after:transition-all after:duration-300 ` +
     (active === href
-      ? 'text-cream after:w-full'
-      : 'text-light/70 hover:text-cream after:w-0 hover:after:w-full');
+      ? 'text-silver after:w-full'
+      : 'text-light/70 hover:text-silver after:w-0 hover:after:w-full');
 
   return (
     <motion.nav
@@ -66,13 +66,13 @@ const Navbar = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? 'bg-dark/90 backdrop-blur-md shadow-lg shadow-black/30 border-b border-cream/10' : 'bg-transparent'
+        scrolled ? 'bg-dark/90 backdrop-blur-md shadow-lg shadow-black/30 border-b border-silver/10' : 'bg-transparent'
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 h-16 md:h-20 flex items-center justify-between">
         <a href="#home" className="flex items-center gap-3">
           <img src="/images/logo.svg" alt="Desu Wannabisaya logo" className="w-9 h-9 md:w-10 md:h-10" />
-          <span className="text-cream text-lg md:text-xl font-bold tracking-wider">Desu Wannabisaya</span>
+          <span className="text-lg md:text-xl font-bold tracking-wider bg-gradient-to-b from-white via-[#C9C9CE] to-[#77777E] bg-clip-text text-transparent">Desu Wannabisaya</span>
         </a>
 
         <div className="hidden md:flex items-center gap-7 lg:gap-9">
@@ -103,7 +103,7 @@ const Navbar = () => {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25 }}
-            className="md:hidden bg-dark-2/95 backdrop-blur-md border-t border-cream/10 overflow-hidden"
+            className="md:hidden bg-dark-2/95 backdrop-blur-md border-t border-silver/10 overflow-hidden"
           >
             <div className="flex flex-col items-center py-8 gap-6 max-h-[calc(100dvh-4rem)] overflow-y-auto">
               {portfolioData.navLinks.map((link) => (

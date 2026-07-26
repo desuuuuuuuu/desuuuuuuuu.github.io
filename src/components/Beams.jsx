@@ -123,7 +123,7 @@ const Beams = ({
   beamWidth = 2,
   beamHeight = 15,
   beamNumber = 12,
-  lightColor = '#EFE6D0',
+  lightColor = '#E4E4E7',
   speed = 2,
   noiseIntensity = 1.75,
   scale = 0.2,
@@ -194,7 +194,7 @@ const Beams = ({
         <DirLight color={lightColor} position={[0, 3, 10]} />
       </group>
       <ambientLight intensity={1} />
-      <color attach="background" args={['#0A0A0A']} />
+      <color attach="background" args={['#09090B']} />
       <PerspectiveCamera makeDefault position={[0, 0, 20]} fov={30} />
     </CanvasWrapper>
   );

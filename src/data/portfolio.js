@@ -4,6 +4,13 @@ export const portfolioData = {
   availability: "Open to work",
   highlights: ["BSIT Graduate", "Full-Stack Developer", "Mobile Developer", "IT Specialist"],
   email: "santostsoggy@gmail.com",
+
+  // Discord: username is displayed; userId (numeric snowflake) enables the
+  // live presence card via Lanyard — join discord.gg/lanyard for it to work.
+  discord: {
+    username: "",
+    userId: ""
+  },
   profileImage: "https://i.pinimg.com/vwebp/736x/9a/b9/ce/9ab9ce093485b19c9040746d4d1e0f13.webp",
 
   socials: [
