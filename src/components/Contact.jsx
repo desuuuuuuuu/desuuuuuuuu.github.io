@@ -1,12 +1,11 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaFacebook, FaGithub, FaEnvelope } from 'react-icons/fa';
+import { FaGithub, FaEnvelope } from 'react-icons/fa';
 import SectionHeading from './SectionHeading';
 import SpecularButton from './SpecularButton';
 import { portfolioData } from '../data/portfolio';
 
 const socialIcons = {
-  FaFacebook: FaFacebook,
   FaGithub: FaGithub
 };
 

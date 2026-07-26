@@ -1,6 +1,6 @@
 import { Suspense, lazy, useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaFacebook, FaGithub } from 'react-icons/fa';
+import { FaGithub } from 'react-icons/fa';
 import CanvasGuard from './CanvasGuard';
 import SpecularButton from './SpecularButton';
 import { portfolioData } from '../data/portfolio';
@@ -8,7 +8,6 @@ import { portfolioData } from '../data/portfolio';
 const Beams = lazy(() => import('./Beams'));
 
 const socialIcons = {
-  FaFacebook: FaFacebook,
   FaGithub: FaGithub
 };
 

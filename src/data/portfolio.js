@@ -8,11 +8,6 @@ export const portfolioData = {
 
   socials: [
     {
-      name: "Facebook",
-      url: "https://www.facebook.com/ahronsantos1414",
-      icon: "FaFacebook"
-    },
-    {
       name: "GitHub",
       url: "https://github.com/desuuuuuuuu",
       icon: "FaGithub"

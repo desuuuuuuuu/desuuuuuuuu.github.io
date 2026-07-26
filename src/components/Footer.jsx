@@ -1,9 +1,8 @@
 import { motion } from 'framer-motion';
-import { FaFacebook, FaGithub, FaArrowUp } from 'react-icons/fa';
+import { FaGithub, FaArrowUp } from 'react-icons/fa';
 import { portfolioData } from '../data/portfolio';
 
 const socialIcons = {
-  FaFacebook: FaFacebook,
   FaGithub: FaGithub
 };
 
