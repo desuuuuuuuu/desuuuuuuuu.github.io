@@ -8,8 +8,8 @@ export const portfolioData = {
   // Discord: username is displayed; userId (numeric snowflake) enables the
   // live presence card via Lanyard — join discord.gg/lanyard for it to work.
   discord: {
-    username: "",
-    userId: ""
+    username: "blesseddesu",
+    userId: "1342873323784372254"
   },
   profileImage: "https://i.pinimg.com/vwebp/736x/9a/b9/ce/9ab9ce093485b19c9040746d4d1e0f13.webp",
 
