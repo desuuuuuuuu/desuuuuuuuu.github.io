@@ -42,7 +42,7 @@ const Contact = () => {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="md:col-span-2 flex flex-col gap-5"
           >
-            <div className="bg-dark-3/90 rounded-xl p-6 border border-silver/10">
+            <div className="glass rounded-xl p-6">
               <h3 className="text-light font-semibold mb-2">Let&apos;s build something</h3>
               <p className="text-light/60 text-sm leading-relaxed">
                 I&apos;m open to freelance projects, collaborations, and full-time opportunities.
@@ -52,7 +52,7 @@ const Contact = () => {
 
             <a
               href={`mailto:${portfolioData.email}`}
-              className="bg-dark-3/90 rounded-xl p-6 border border-silver/10 hover:border-silver/30 transition-colors group"
+              className="glass rounded-xl p-6 hover:border-silver/30 transition-colors group"
             >
               <div className="flex items-center gap-3 mb-1.5">
                 <FaEnvelope className="text-silver" aria-hidden="true" />
@@ -63,7 +63,7 @@ const Contact = () => {
               </span>
             </a>
 
-            <div className="bg-dark-3/90 rounded-xl p-6 border border-silver/10">
+            <div className="glass rounded-xl p-6">
               <p className="text-light/70 text-xs uppercase tracking-wider font-medium mb-3">Follow me</p>
               <div className="flex gap-4">
                 {portfolioData.socials.map((social) => {
@@ -92,7 +92,7 @@ const Contact = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="md:col-span-3"
           >
-            <form onSubmit={handleSubmit} className="bg-dark-3/90 rounded-xl p-6 md:p-8 border border-silver/10 space-y-5">
+            <form onSubmit={handleSubmit} className="glass rounded-xl p-6 md:p-8 space-y-5">
               <div>
                 <label htmlFor="contact-name" className="block text-light/70 text-xs mb-2 font-medium uppercase tracking-wider">
                   Name

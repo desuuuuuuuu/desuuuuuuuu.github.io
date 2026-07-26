@@ -20,7 +20,7 @@ const ServiceCard = ({ service, index }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-50px' }}
       transition={{ duration: 0.4, delay: index * 0.06 }}
-      className="bg-dark-3/90 rounded-xl p-7 border border-silver/10 hover:border-silver/30 hover:-translate-y-1 hover:shadow-xl hover:shadow-silver/5 transition-all duration-300 group flex flex-col"
+      className="glass rounded-xl p-7 hover:border-silver/30 hover:-translate-y-1 hover:shadow-xl hover:shadow-silver/5 transition-all duration-300 group flex flex-col"
     >
       {Icon && (
         <div className="w-12 h-12 rounded-lg bg-silver/10 border border-silver/20 flex items-center justify-center mb-5 group-hover:bg-silver/15 transition-colors">

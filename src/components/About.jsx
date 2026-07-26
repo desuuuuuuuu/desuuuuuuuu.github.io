@@ -19,7 +19,7 @@ const About = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.5, delay: 0.15 }}
-          className="max-w-4xl mx-auto bg-dark-3/90 rounded-2xl p-8 md:p-12 border border-silver/10"
+          className="max-w-4xl mx-auto glass rounded-2xl p-8 md:p-12"
         >
           <div className="flex flex-wrap justify-center gap-2.5 mb-8">
             {portfolioData.highlights.map((highlight) => (

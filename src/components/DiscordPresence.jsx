@@ -63,7 +63,7 @@ const DiscordPresence = () => {
   );
 
   const cardClass =
-    'inline-flex items-center gap-3 px-4 py-2.5 rounded-xl bg-dark-3/90 border border-silver/10 ' +
+    'inline-flex items-center gap-3 px-4 py-2.5 rounded-xl glass ' +
     'hover:border-silver/30 transition-colors duration-300 max-w-full';
 
   return userId ? (

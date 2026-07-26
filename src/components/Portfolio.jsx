@@ -18,7 +18,7 @@ const ProjectCard = ({ project, index }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-60px' }}
       transition={{ duration: 0.4, delay: index * 0.1 }}
-      className="bg-dark-3/90 rounded-xl overflow-hidden border border-silver/10 hover:border-silver/30 hover:-translate-y-1 hover:shadow-xl hover:shadow-silver/5 transition-all duration-300 flex flex-col"
+      className="glass rounded-xl overflow-hidden hover:border-silver/30 hover:-translate-y-1 hover:shadow-xl hover:shadow-silver/5 transition-all duration-300 flex flex-col"
     >
       <div className="relative group">
         <div className="aspect-video overflow-hidden bg-dark-2">

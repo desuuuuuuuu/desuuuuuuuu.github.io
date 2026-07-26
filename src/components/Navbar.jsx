@@ -66,7 +66,7 @@ const Navbar = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? 'bg-dark/90 backdrop-blur-md shadow-lg shadow-black/30 border-b border-silver/10' : 'bg-transparent'
+        scrolled ? 'bg-dark/60 backdrop-blur-xl backdrop-saturate-150 shadow-lg shadow-black/30 border-b border-white/10' : 'bg-transparent'
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 h-16 md:h-20 flex items-center justify-center">
@@ -98,7 +98,7 @@ const Navbar = () => {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25 }}
-            className="md:hidden bg-dark-2/95 backdrop-blur-md border-t border-silver/10 overflow-hidden"
+            className="md:hidden bg-dark-2/75 backdrop-blur-xl backdrop-saturate-150 border-t border-white/10 overflow-hidden"
           >
             <div className="flex flex-col items-center py-8 gap-6 max-h-[calc(100dvh-4rem)] overflow-y-auto">
               {portfolioData.navLinks.map((link) => (

@@ -51,7 +51,7 @@ const BrightnessControl = () => {
   return (
     <div ref={rootRef} className="fixed bottom-5 right-5 z-40 flex flex-col items-end gap-3">
       {open && (
-        <div className="bg-dark-3/95 border border-silver/20 rounded-xl px-4 py-3 shadow-xl shadow-black/50 backdrop-blur-sm">
+        <div className="glass rounded-xl px-4 py-3 shadow-xl shadow-black/50">
           <label
             htmlFor="portrait-brightness"
             className="block text-muted text-[10px] uppercase tracking-[0.15em] mb-2"
@@ -78,7 +78,7 @@ const BrightnessControl = () => {
         onClick={() => setOpen(!open)}
         aria-expanded={open}
         aria-label="Adjust background portrait brightness"
-        className="w-11 h-11 rounded-full bg-dark-3/95 border border-silver/20 flex items-center justify-center text-silver/70 hover:text-silver hover:border-silver/40 transition-colors duration-300 shadow-lg shadow-black/40 backdrop-blur-sm"
+        className="w-11 h-11 rounded-full glass flex items-center justify-center text-silver/70 hover:text-silver hover:border-silver/40 transition-colors duration-300 shadow-lg shadow-black/40"
       >
         <FaSun size={16} aria-hidden="true" />
       </button>

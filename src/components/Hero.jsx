@@ -92,7 +92,7 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="flex-1 max-w-xl text-center lg:text-left"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-silver/25 bg-silver/5 mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-silver/25 bg-silver/5 backdrop-blur-md mb-6">
               <span className="relative flex h-2 w-2" aria-hidden="true">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-silver opacity-60" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-silver" />

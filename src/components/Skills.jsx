@@ -34,7 +34,7 @@ const Skills = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-30px' }}
                 transition={{ duration: 0.35, delay: index * 0.05 }}
-                className="bg-dark-3/90 rounded-xl p-6 flex flex-col items-center gap-3 border border-silver/10 hover:border-silver/30 hover:-translate-y-1 hover:shadow-lg hover:shadow-silver/5 transition-all duration-300 group text-center"
+                className="glass rounded-xl p-6 flex flex-col items-center gap-3 hover:border-silver/30 hover:-translate-y-1 hover:shadow-lg hover:shadow-silver/5 transition-all duration-300 group text-center"
               >
                 {Icon && (
                   <Icon className="text-3xl text-silver group-hover:text-silver-light group-hover:scale-110 transition-all duration-300" />
