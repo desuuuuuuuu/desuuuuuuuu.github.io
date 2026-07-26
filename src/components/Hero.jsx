@@ -2,7 +2,7 @@ import { Suspense, lazy, useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaGithub } from 'react-icons/fa';
 import CanvasGuard from './CanvasGuard';
-import SpecularButton from './SpecularButton';
+import BlackHoleButton from './BlackHoleButton';
 import DiscordPresence from './DiscordPresence';
 import { portfolioData } from '../data/portfolio';
 
@@ -110,32 +110,14 @@ const Hero = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center lg:justify-start justify-center gap-4 mb-10">
-              <SpecularButton
-                size="md"
-                radius={18}
-                tint="#E4E4E7"
-                tintOpacity={0.1}
-                blur={2}
-                textColor="#f5f5f5"
-                lineColor="#E4E4E7"
-                baseColor="#E4E4E7"
-                intensity={1}
-                shineSize={10}
-                shineFade={40}
-                thickness={1}
-                speed={0.35}
-                followMouse
-                proximity={250}
-                autoAnimate={false}
-                onClick={() => document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' })}
-              >
-                View My Work
-              </SpecularButton>
+              <CanvasGuard>
+                <BlackHoleButton targetId="contact">Enter the Void</BlackHoleButton>
+              </CanvasGuard>
               <a
-                href="#contact"
+                href="#portfolio"
                 className="px-8 py-3.5 rounded-2xl border border-light/20 text-light/80 text-base font-medium hover:border-silver/50 hover:text-silver transition-colors duration-300"
               >
-                Get in Touch
+                View My Work
               </a>
             </div>
 
