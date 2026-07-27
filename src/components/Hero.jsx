@@ -7,6 +7,7 @@ import DiscordPresence from './DiscordPresence';
 import { portfolioData } from '../data/portfolio';
 
 const Beams = lazy(() => import('./Beams'));
+const VoidOverlay = lazy(() => import('./VoidOverlay'));
 
 const socialIcons = {
   FaGithub: FaGithub
@@ -15,6 +16,7 @@ const socialIcons = {
 const Hero = () => {
   const sectionRef = useRef(null);
   const [inView, setInView] = useState(true);
+  const [voidOpen, setVoidOpen] = useState(false);
 
   // Halt the Beams render loop entirely while the hero is scrolled out of view
   useEffect(() => {
@@ -111,7 +113,7 @@ const Hero = () => {
 
             <div className="flex flex-col sm:flex-row items-center lg:justify-start justify-center gap-4 mb-10">
               <CanvasGuard>
-                <BlackHoleButton targetId="contact">Enter the Void</BlackHoleButton>
+                <BlackHoleButton onActivate={() => setVoidOpen(true)}>Enter the Void</BlackHoleButton>
               </CanvasGuard>
               <a
                 href="#portfolio"
@@ -169,6 +171,14 @@ const Hero = () => {
           <path d="M12 5v14M19 12l-7 7-7-7" />
         </motion.svg>
       </motion.a>
+
+      {voidOpen && (
+        <CanvasGuard>
+          <Suspense fallback={null}>
+            <VoidOverlay onClose={() => setVoidOpen(false)} />
+          </Suspense>
+        </CanvasGuard>
+      )}
     </section>
   );
 };

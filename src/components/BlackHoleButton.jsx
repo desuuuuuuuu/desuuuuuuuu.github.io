@@ -37,16 +37,29 @@ float hash21(vec2 p) {
   return fract(p.x * p.y);
 }
 
+float vnoise(vec2 p) {
+  vec2 i = floor(p);
+  vec2 f = fract(p);
+  f = f * f * (3.0 - 2.0 * f);
+  float a = hash21(i);
+  float b = hash21(i + vec2(1.0, 0.0));
+  float c = hash21(i + vec2(0.0, 1.0));
+  float d = hash21(i + vec2(1.0, 1.0));
+  return mix(mix(a, b, f.x), mix(c, d, f.x), f.y);
+}
+
 vec3 starLayer(vec2 p, float cell, float t, float bright) {
   vec2 g = floor(p / cell);
   vec2 f = fract(p / cell);
   float h = hash21(g);
   vec2 sp = vec2(hash21(g + 1.7), hash21(g + 9.3)) * 0.8 + 0.1;
   float d = length(f - sp);
-  float size = 0.03 + 0.09 * h;
-  float tw = 0.65 + 0.35 * sin(t * (1.0 + 2.0 * h) + h * 43.0);
-  float s = smoothstep(size, 0.0, d) * step(0.72, h) * tw * bright;
-  return vec3(0.88, 0.90, 0.95) * s;
+  float size = 0.05 + 0.13 * h;
+  float tw = 0.7 + 0.3 * sin(t * (1.0 + 2.0 * h) + h * 43.0);
+  float core = smoothstep(size, 0.0, d);
+  float glow = exp(-d * d * 26.0) * 0.35;
+  float s = (core + glow) * step(0.5, h) * tw * bright;
+  return vec3(0.90, 0.92, 0.97) * s;
 }
 
 void main() {
@@ -59,8 +72,8 @@ void main() {
   float d = max(length(rel), 1e-3);
   vec2 dir = rel / d;
 
-  float rh = 20.0 * uPx;            // event horizon radius
-  float photonR = rh * 1.45;
+  float rh = 17.0 * uPx;            // event horizon radius
+  float photonR = rh * 1.5;
 
   // click shockwave: expanding ring that displaces space and glows
   float shockGlow = 0.0;
@@ -80,29 +93,42 @@ void main() {
   float swirl = (uMotion * (140.0 + 80.0 * uHover) * uPx) / (d + 30.0 * uPx);
   float cs = cos(swirl), sn = sin(swirl);
   vec2 rq = vec2(rel.x * cs - rel.y * sn, rel.x * sn + rel.y * cs);
-  vec2 sp = uHole + normalize(rq) * max(d - lens, 0.5) + shockPush;
+  // constant slow orbit so space is always alive, even far from the hole
+  float orbit = t * 0.07;
+  float oc = cos(orbit), os = sin(orbit);
+  vec2 orel = rel;
+  orel = vec2(orel.x * oc - orel.y * os, orel.x * os + orel.y * oc);
+  vec2 sp = uHole + normalize(vec2(rq.x * oc - rq.y * os, rq.x * os + rq.y * oc)) * max(d - lens, 0.5) + shockPush;
 
-  // lensed starfield, two depths drifting slowly
+  // lensed starfield, three depths
   vec3 col = vec3(0.0);
-  col += starLayer(sp + vec2(t * 6.0, t * 2.0), 34.0 * uPx, t, 0.9);
-  col += starLayer(sp * 1.9 + vec2(-t * 3.5, t * 4.5), 23.0 * uPx, t + 7.0, 0.55);
+  col += starLayer(sp + vec2(t * 7.0, t * 2.5), 30.0 * uPx, t, 1.15);
+  col += starLayer(sp * 1.7 + vec2(-t * 4.0, t * 5.0), 21.0 * uPx, t + 7.0, 0.75);
+  col += starLayer(sp * 2.6 + vec2(t * 2.0, -t * 3.0), 14.0 * uPx, t + 13.0, 0.45);
 
-  // deep space base tint so the pill reads as a window, not a cutout
-  col += vec3(0.012, 0.013, 0.016);
+  // silver nebula haze so the window never reads as flat black
+  float neb = vnoise(sp * 0.012 / uPx + vec2(t * 0.015, 0.0)) * vnoise(sp * 0.03 / uPx + 5.0);
+  col += vec3(0.30, 0.32, 0.38) * neb * 0.35;
+  col += vec3(0.02, 0.021, 0.026);
 
   // accretion disk: edge-on ellipse around the hole
   float rEll = length(rel * vec2(1.0, 2.6));
   float angEll = atan(rel.y * 2.6, rel.x);
-  float diskR = rh * 2.35;
-  float band = exp(-pow((rEll - diskR) / (7.5 * uPx), 2.0));
-  float streaks = 0.55 + 0.45 * sin(angEll * 5.0 - t * 2.4 + rEll * 0.11 / uPx);
-  float doppler = 1.0 + 0.8 * cos(angEll - 0.4);
-  float diskI = band * streaks * doppler * (0.65 + 0.85 * uHover);
-  col += vec3(1.0, 0.97, 0.92) * diskI * 1.15;
+  float diskR = rh * 2.5;
+  float band = exp(-pow((rEll - diskR) / (11.0 * uPx), 2.0));
+  float hotEdge = exp(-pow((rEll - (diskR - 6.0 * uPx)) / (3.5 * uPx), 2.0));
+  float bloom = exp(-pow((rEll - diskR) / (34.0 * uPx), 2.0));
+  float streaks = 0.6 + 0.4 * sin(angEll * 5.0 - t * 2.6 + rEll * 0.13 / uPx);
+  float doppler = 1.0 + 0.85 * cos(angEll - 0.4);
+  float boost = 0.9 + 0.9 * uHover;
+  col += vec3(1.0, 0.98, 0.94) * band * streaks * doppler * 1.7 * boost;
+  col += vec3(1.0, 1.0, 1.0) * hotEdge * doppler * 0.9 * boost;
+  col += vec3(0.75, 0.78, 0.85) * bloom * doppler * 0.30 * boost;
 
   // photon ring: razor-thin light circle hugging the horizon
-  float photon = exp(-pow((d - photonR) / (1.6 * uPx), 2.0)) * (1.0 + 0.9 * uHover);
+  float photon = exp(-pow((d - photonR) / (1.8 * uPx), 2.0)) * (1.5 + 1.0 * uHover);
   col += vec3(1.0, 0.99, 0.96) * photon;
+  col += vec3(0.9, 0.92, 0.97) * exp(-pow((d - photonR) / (7.0 * uPx), 2.0)) * 0.35;
 
   // shock flash
   col += vec3(0.95, 0.97, 1.0) * shockGlow;
@@ -120,9 +146,11 @@ void main() {
 }
 `;
 
-const BlackHoleButton = ({ children = 'Enter the Void', onNavigate, targetId = 'contact', className = '' }) => {
+const BlackHoleButton = ({ children = 'Enter the Void', onActivate, className = '' }) => {
   const btnRef = useRef(null);
   const fxRef = useRef(null);
+  const onActivateRef = useRef(onActivate);
+  onActivateRef.current = onActivate;
 
   useEffect(() => {
     const btn = btnRef.current;
@@ -131,7 +159,7 @@ const BlackHoleButton = ({ children = 'Enter the Void', onNavigate, targetId = '
 
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
-    const renderer = new Renderer({ alpha: true, premultipliedAlpha: true, antialias: false, dpr });
+    const renderer = new Renderer({ alpha: true, premultipliedAlpha: true, antialias: false, dpr, preserveDrawingBuffer: true });
     const gl = renderer.gl;
     gl.clearColor(0, 0, 0, 0);
     gl.enable(gl.BLEND);
@@ -245,29 +273,14 @@ const BlackHoleButton = ({ children = 'Enter the Void', onNavigate, targetId = '
     io.observe(btn);
 
     const onClick = () => {
-      if (!reduced) {
-        shockStart = performance.now();
-        startLoop();
-      }
-      const target = document.getElementById(targetId);
-      if (!target) return;
       if (reduced) {
-        target.scrollIntoView();
+        onActivateRef.current?.();
         return;
       }
-      // gravity pull: accelerating fall toward the target section
-      const startY = window.scrollY;
-      const endY = target.getBoundingClientRect().top + startY - 80;
-      const t0 = performance.now();
-      const D = 950;
-      const fall = (now) => {
-        const u = Math.min((now - t0) / D, 1);
-        const eased = u < 0.75 ? Math.pow(u / 0.75, 2.4) * 0.92 : 0.92 + 0.08 * ((u - 0.75) / 0.25);
-        window.scrollTo(0, startY + (endY - startY) * eased);
-        if (u < 1) requestAnimationFrame(fall);
-      };
-      requestAnimationFrame(fall);
-      onNavigate?.();
+      // fire the shockwave, then let the caller open the void
+      shockStart = performance.now();
+      startLoop();
+      setTimeout(() => onActivateRef.current?.(), 380);
     };
     btn.addEventListener('click', onClick);
 
@@ -280,14 +293,14 @@ const BlackHoleButton = ({ children = 'Enter the Void', onNavigate, targetId = '
       if (gl.canvas.parentNode === fx) fx.removeChild(gl.canvas);
       gl.getExtension('WEBGL_lose_context')?.loseContext();
     };
-  }, [targetId, onNavigate]);
+  }, []);
 
   return (
     <button
       ref={btnRef}
       type="button"
       className={`blackhole-button${className ? ` ${className}` : ''}`}
-      aria-label={`${children} — go to ${targetId} section`}
+      aria-label={typeof children === 'string' ? children : 'Enter the void'}
     >
       <span ref={fxRef} className="blackhole-button__fx" aria-hidden="true" />
       <span className="blackhole-button__label">{children}</span>
